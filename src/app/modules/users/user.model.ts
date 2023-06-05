@@ -1,11 +1,8 @@
-import { Model, Schema, model } from 'mongoose'
-import { IUser } from './users.interface'
-
-// this is the interface used to create a new user
-type UserModel = Model<IUser, object>
+import { Schema, model } from 'mongoose'
+import { IUser, UserModel } from './user.interface'
 
 // this is the schema used to validate the data sent to the database
-const userSchema = new Schema<IUser, UserModel>(
+const userSchema = new Schema<IUser>(
   {
     id: {
       type: String,
