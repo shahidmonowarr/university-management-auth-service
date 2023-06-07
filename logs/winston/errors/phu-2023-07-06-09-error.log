@@ -1,0 +1,24 @@
+Wed Jun 07 2023 9:10:19 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required"
+  }
+]
+Wed Jun 07 2023 9:57:4 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required"
+  }
+]

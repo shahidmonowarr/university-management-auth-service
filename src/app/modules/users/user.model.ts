@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose'
-import { IUser, UserModel } from './user.interface'
+import { Schema, model } from 'mongoose';
+import { IUser, UserModel } from './user.interface';
 
 // this is the schema used to validate the data sent to the database
 const userSchema = new Schema<IUser>(
@@ -22,7 +22,7 @@ const userSchema = new Schema<IUser>(
   {
     timestamps: true,
   }
-)
+);
 
 // this is the model used to interact with the database
-export const User = model<IUser, UserModel>('User', userSchema)
+export const User = model<IUser, UserModel>('User', userSchema);
