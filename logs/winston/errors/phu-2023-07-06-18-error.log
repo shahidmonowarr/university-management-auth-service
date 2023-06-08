@@ -1,0 +1,25 @@
+Wed Jun 07 2023 18:28:39 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "received": "Aug",
+    "code": "invalid_enum_value",
+    "options": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "path": [
+      "body",
+      "endMonth"
+    ],
+    "message": "Invalid enum value. Expected 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December', received 'Aug'"
+  }
+]
