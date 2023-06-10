@@ -1,0 +1,2 @@
+Sat Jun 10 2023 10:25:14 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "6482c0731bfc467de91dd" (type string) at path "_id" for model "AcademicSemester"
+Sat Jun 10 2023 10:37:48 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "6482c0731bfc467de91dd" (type string) at path "_id" for model "AcademicSemester"
