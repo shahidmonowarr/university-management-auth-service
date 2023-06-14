@@ -1,0 +1,33 @@
+Tue Jun 13 2023 16:36:4 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "received": "Male",
+    "code": "invalid_enum_value",
+    "options": [
+      "male",
+      "female"
+    ],
+    "path": [
+      "body",
+      "student",
+      "gender"
+    ],
+    "message": "Invalid enum value. Expected 'male' | 'female', received 'Male'"
+  }
+]
+Tue Jun 13 2023 16:42:16 } [PH] error: 🚀 GlobalErrorHandler ~ E11000 duplicate key error collection: university-management.students index: email_1 dup key: { email: "johndoe@example.com" }
+Tue Jun 13 2023 16:43:57 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "received": "Female",
+    "code": "invalid_enum_value",
+    "options": [
+      "male",
+      "female"
+    ],
+    "path": [
+      "body",
+      "student",
+      "gender"
+    ],
+    "message": "Invalid enum value. Expected 'male' | 'female', received 'Female'"
+  }
+]
