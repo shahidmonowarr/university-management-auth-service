@@ -4,3 +4,4 @@ Thu Jun 15 2023 1:40:7 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId 
 Thu Jun 15 2023 1:40:38 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "230300001" (type string) at path "_id" for model "Student"
 Thu Jun 15 2023 1:41:44 } [PH] error: 🚀 GlobalErrorHandler ~ Cannot populate path `academicSemester` because it is not in your schema. Set the `strictPopulate` option to false to override.
 Thu Jun 15 2023 1:42:41 } [PH] error: 🚀 GlobalErrorHandler ~ Cannot populate path `academicSemester` because it is not in your schema. Set the `strictPopulate` option to false to override.
+Thu Jun 15 2023 1:47:14 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "F-00001" (type string) at path "_id" for model "Faculty"
