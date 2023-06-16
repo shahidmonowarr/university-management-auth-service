@@ -1,0 +1,27 @@
+Fri Jun 16 2023 9:46:7 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "body",
+      "faculty"
+    ],
+    "message": "Required"
+  }
+]
+Fri Jun 16 2023 9:49:20 } [PH] error: 🚀 GlobalErrorHandler ~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "admin",
+      "academicDepartment"
+    ],
+    "message": "Academic department is required"
+  }
+]
+Fri Jun 16 2023 9:50:5 } [PH] error: 🚀 GlobalErrorHandler ~ Faculty validation failed: academicDepartment: Path `academicDepartment` is required., academicFaculty: Path `academicFaculty` is required.
+Fri Jun 16 2023 9:54:8 } [PH] error: 🚀 GlobalErrorHandler ~ Faculty validation failed: academicDepartment: Path `academicDepartment` is required., academicFaculty: Path `academicFaculty` is required.
