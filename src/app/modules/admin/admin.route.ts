@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/:id', AdminController.getSingleAdmin);
 router.get('/', AdminController.getAllAdmins);
 
-// router.delete('/:id', AdminController.deleteFaculty);
+router.delete('/:id', AdminController.deleteAdmin);
 
 router.patch(
   '/:id',
