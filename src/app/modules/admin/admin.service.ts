@@ -5,6 +5,7 @@ import ApiError from '../../../errors/ApiError';
 import { PaginationHelper } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import { User } from '../users/user.model';
 import { adminSearchableFields } from './admin.constant';
 import { IAdmin, IAdminFilters } from './admin.interface';
 import { Admin } from './admin.model';
@@ -68,13 +69,13 @@ const getAllAdmins = async (
   };
 };
 
-// single semester
+// single Admin
 const getSingleAdmin = async (id: string): Promise<IAdmin | null> => {
   const result = await Admin.findById(id).populate('managementDepartment');
   return result;
 };
 
-// update semester
+// update Admin
 const updateAdmin = async (
   id: string,
   payload: Partial<IAdmin>
@@ -102,8 +103,49 @@ const updateAdmin = async (
   return result;
 };
 
+// delete Admin
+const deleteAdmin = async (id: string): Promise<IAdmin | null> => {
+  // check if the faculty is exist
+  const isExist = await Admin.findOne({ id });
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Faculty not found !');
+  }
+
+  // const session = await mongoose.startSession();
+
+  // try {
+  //   // session.startTransaction();
+  //   // delete student first
+  //   const student = await Admin.findOneAndDelete({ id }, { session });
+  //   if (!student) {
+  //     throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to delete Student');
+  //   }
+
+  //   // delete user
+  //   await User.deleteOne({ id });
+  //   // session.commitTransaction();
+  //   // session.endSession();
+
+  //   return student;
+  // } catch (error) {
+  //   // session.abortTransaction();
+  //   throw error;
+  // }
+
+  const student = await Admin.findOneAndDelete({ id });
+  if (!student) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to delete Student');
+  }
+
+  // delete user
+  await User.deleteOne({ id });
+  return student;
+};
+
 export const AdminService = {
   getAllAdmins,
   getSingleAdmin,
   updateAdmin,
+  deleteAdmin,
 };

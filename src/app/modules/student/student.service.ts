@@ -5,6 +5,7 @@ import ApiError from '../../../errors/ApiError';
 import { PaginationHelper } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import { User } from '../users/user.model';
 import { studentSearchableFields } from './student.constant';
 import { IStudent, IStudentFilters } from './student.interface';
 import { Student } from './student.model';
@@ -143,11 +144,42 @@ const updateStudent = async (
 
 // delete semester
 const deleteStudent = async (id: string): Promise<IStudent | null> => {
-  const result = await Student.findByIdAndDelete(id)
-    .populate('academicFaculty')
-    .populate('academicDepartment')
-    .populate('academicSemester');
-  return result;
+  // check if the Student is exist
+  const isExist = await Student.findOne({ id });
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Student not found');
+  }
+
+  // const session = await mongoose.startSession();
+
+  // try {
+  //   // session.startTransaction();
+  //   // delete Student
+  //   const student = await Student.findOneAndDelete({ id });
+
+  //   if (!student) {
+  //     throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to delete Student');
+  //   }
+  //   // delete user
+  //   await User.deleteOne({ id });
+  //   // session.commitTransaction();
+  //   // session.endSession();
+
+  //   return student;
+  // } catch (error) {
+  //   // session.abortTransaction();
+  //   throw error;
+  // }
+
+  const student = await Student.findOneAndDelete({ id });
+
+  if (!student) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to delete Student');
+  }
+  // delete user
+  await User.deleteOne({ id });
+  return student;
 };
 
 export const StudentService = {
