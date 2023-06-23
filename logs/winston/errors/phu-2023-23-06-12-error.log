@@ -1,0 +1,4 @@
+Fri Jun 23 2023 12:0:2 } [PH] error: 🚀 GlobalErrorHandler ~ E11000 duplicate key error collection: university-management.students index: email_1 dup key: { email: "nokib@example.com" }
+Fri Jun 23 2023 12:1:43 } [PH] error: 🚀 GlobalErrorHandler ~ Password Does Not Match
+Fri Jun 23 2023 12:1:52 } [PH] error: 🚀 GlobalErrorHandler ~ Password Does Not Match
+Fri Jun 23 2023 12:4:5 } [PH] error: 🚀 GlobalErrorHandler ~ Password Does Not Match
