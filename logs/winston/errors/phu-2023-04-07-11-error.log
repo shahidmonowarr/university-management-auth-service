@@ -1,0 +1,3 @@
+Tue Jul 04 2023 11:40:32 } [PH] error: 🚀 GlobalErrorHandler ~ User Does Not Exist
+Tue Jul 04 2023 11:51:29 } [PH] error: 🚀 GlobalErrorHandler ~ Invalid salt. Salt must be in the form of: $Vers$log2(NumRounds)$saltvalue
+Tue Jul 04 2023 11:54:4 } [PH] error: 🚀 GlobalErrorHandler ~ Old Password is Incorrect
