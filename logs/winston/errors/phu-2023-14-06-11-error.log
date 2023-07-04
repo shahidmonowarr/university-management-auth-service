@@ -1,3 +1,0 @@
-Wed Jun 14 2023 11:18:28 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "230300001" (type string) at path "_id" for model "Student"
-Wed Jun 14 2023 11:23:18 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "230300001" (type string) at path "_id" for model "Student"
-Wed Jun 14 2023 11:23:25 } [PH] error: 🚀 GlobalErrorHandler ~ Cast to ObjectId failed for value "230300001" (type string) at path "_id" for model "Student"
