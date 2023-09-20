@@ -5,6 +5,7 @@ import { IPaginationOptions } from '../../../interfaces/pagination';
 import { academicFacultyFilterableField } from './academicFaculty.constants';
 import {
   AcademicFacultyCreatedEvent,
+  AcademicFacultyUpdatedEvent,
   IAcademicFaculty,
   IAcademicFacultyFilters,
 } from './academicFaculty.interfaces';
@@ -109,6 +110,23 @@ const insertIntoDBFromEvent = async (
   });
 };
 
+const updateOneInDBFromEvent = async (
+  e: AcademicFacultyUpdatedEvent
+): Promise<void> => {
+  await AcademicFaculty.findOneAndUpdate(
+    { syncId: e.id },
+    {
+      $set: {
+        title: e.title,
+      },
+    }
+  );
+};
+
+const deleteOneFromDBFromEvent = async (syncId: string): Promise<void> => {
+  await AcademicFaculty.findOneAndDelete({ syncId });
+};
+
 export const AcademicFacultyService = {
   createFaculty,
   getAllFaculties,
@@ -116,4 +134,6 @@ export const AcademicFacultyService = {
   updateFaculty,
   deleteFaculty,
   insertIntoDBFromEvent,
+  updateOneInDBFromEvent,
+  deleteOneFromDBFromEvent,
 };

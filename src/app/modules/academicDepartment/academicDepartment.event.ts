@@ -1,6 +1,14 @@
 import { RedisClient } from '../../../shared/redis';
-import { EVENT_ACADEMIC_DEPARTMENT_CREATED } from './academicDepartment.constants';
-import { AcademicDepartmentCreatedEvent } from './academicDepartment.interfaces';
+import {
+  EVENT_ACADEMIC_DEPARTMENT_CREATED,
+  EVENT_ACADEMIC_DEPARTMENT_DELETED,
+  EVENT_ACADEMIC_DEPARTMENT_UPDATED,
+} from './academicDepartment.constants';
+import {
+  AcademicDepartmentCreatedEvent,
+  AcademicDepartmentDeletedEvent,
+  AcademicDepartmentUpdatedEvent,
+} from './academicDepartment.interfaces';
 import { AcademicDepartmentService } from './academicDepartment.service';
 
 const initAcademicDepartmentEvents = () => {
@@ -10,8 +18,26 @@ const initAcademicDepartmentEvents = () => {
       const data: AcademicDepartmentCreatedEvent = JSON.parse(e);
 
       await AcademicDepartmentService.insertIntoDBFromEvent(data);
+    }
+  );
+  RedisClient.subscribe(
+    EVENT_ACADEMIC_DEPARTMENT_UPDATED,
+    async (e: string) => {
+      const data: AcademicDepartmentUpdatedEvent = JSON.parse(e);
 
-      console.log('event data', data);
+      await AcademicDepartmentService.updateOneInDBFromEvent(data);
+
+      console.log('updated dept data', data);
+    }
+  );
+  RedisClient.subscribe(
+    EVENT_ACADEMIC_DEPARTMENT_DELETED,
+    async (e: string) => {
+      const data: AcademicDepartmentDeletedEvent = JSON.parse(e);
+
+      await AcademicDepartmentService.deleteOneFromDBFromEvent(data.id);
+
+      console.log('deleted event data', data);
     }
   );
 };
